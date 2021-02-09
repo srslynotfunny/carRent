@@ -21,7 +21,7 @@ namespace CarRent.Controllers
         }
 
         //GET api/cars/{id}
-        [HttpGet("{id", Name="GetCarById")]
+        [HttpGet("{id}", Name="GetCarById")]
         public ActionResult <Car> GetCarById(int id)
         {
             var carItem = _repository.GetCarById(id);
