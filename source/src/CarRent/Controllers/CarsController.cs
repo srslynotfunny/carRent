@@ -14,7 +14,7 @@ namespace CarRent.Controllers
 
         //GET api/cars
         [HttpGet]
-        public ActionResult <IEnumerable<Car>> GetAllCars()
+        public ActionResult <IEnumerable<Car>> GetAllCars()     //Name spielt hier keine Rolle, Benennung macht Sinn
         {
             var carItems = _repository.GetAllCars();
             return Ok(carItems);
