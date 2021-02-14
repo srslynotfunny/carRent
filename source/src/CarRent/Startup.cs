@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Web;
 using CarRent.Data;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace CarRent
 {
@@ -28,6 +30,15 @@ namespace CarRent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<CarRentContext>(
+                opt => opt
+                    .UseMySql
+                        (Configuration.GetConnectionString("CarRentConnection"),
+                        new MySqlServerVersion(new Version(8, 0, 20)),
+                        opt => opt
+                            .CharSetBehavior(CharSetBehavior.NeverAppend))
+            );
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
