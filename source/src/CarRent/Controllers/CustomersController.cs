@@ -9,11 +9,18 @@ namespace CarRent.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly MockCustomerRepo _repository = new MockCustomerRepo();
+        private readonly ICustomerRepo _repository;
+
+        public CustomersController(ICustomerRepo repository)
+        {
+            _repository = repository;
+        }
+
+        //private readonly MockCustomerRepo _repository = new MockCustomerRepo();
 
         //api/customers
         [HttpGet]
-        public ActionResult<IEnumerable<Customer>> GetAllCustomers()
+        public ActionResult <IEnumerable<Customer>> GetAllCustomers()
         {
             var customerItems = _repository.GetAllCustomers();
             return Ok(customerItems);
@@ -21,7 +28,7 @@ namespace CarRent.Controllers
 
         //api/customers/id?5
         [HttpGet("id")]
-        public ActionResult<Customer> GetCustomerById([FromQuery]int id)
+        public ActionResult <Customer> GetCustomerById([FromQuery]int id)
         {
             var customerItem = _repository.GetCustomerById(id);
             return Ok(customerItem);
@@ -29,7 +36,7 @@ namespace CarRent.Controllers
 
         //api/customers/name?peter
         [HttpGet("name")]
-        public ActionResult<Customer> GetCustomerByName([FromQuery]string name)
+        public ActionResult <Customer> GetCustomerByName([FromQuery]string name)
         {
             var customerItem = _repository.GetCustomerByName(name);
             return Ok(customerItem);

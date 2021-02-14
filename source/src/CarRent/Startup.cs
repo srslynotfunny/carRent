@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Web;
+using CarRent.Data;
 
 namespace CarRent
 {
@@ -27,12 +28,15 @@ namespace CarRent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent", Version = "v1" });
             });
+
+            //additional code
+            services.AddScoped<ICarRepo, MockCarRepo>();
+            services.AddScoped<ICustomerRepo, MockCustomerRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

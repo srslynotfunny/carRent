@@ -10,9 +10,16 @@ namespace CarRent.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly MockCarRepo _repository = new MockCarRepo();
+        private readonly ICarRepo _repository;
 
-        //GET api/cars
+        public CarsController(ICarRepo repository)
+        {
+            _repository = repository;
+        }
+        
+        //private readonly MockCarRepo _repository = new MockCarRepo();
+
+        //api/cars
         [HttpGet]
         public ActionResult <IEnumerable<Car>> GetAllCars()     //Name spielt hier keine Rolle, Benennung macht Sinn
         {
@@ -20,9 +27,9 @@ namespace CarRent.Controllers
             return Ok(carItems);
         }
 
-        //GET api/cars/{id}
-        [HttpGet("{id}", Name="GetCarById")]
-        public ActionResult <Car> GetCarById(int id)
+        //api/cars/id?5
+        [HttpGet("id")]
+        public ActionResult <Car> GetCarById([FromQuery]int id)
         {
             var carItem = _repository.GetCarById(id);
             return Ok(carItem);
