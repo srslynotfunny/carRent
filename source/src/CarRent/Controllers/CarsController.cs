@@ -27,10 +27,11 @@ namespace CarRent.Controllers
             return Ok(carItems);
         }
 
-        //api/cars/id?5
-        [HttpGet("id")]
-        public ActionResult <Car> GetCarById([FromQuery]int id)
+        //api/cars/5
+        [HttpGet("{id}")]
+        public ActionResult <int> GetCarById(int id)
         {
+            //debugging
             var carItem = _repository.GetCarById(id);
             return Ok(carItem);
         }
