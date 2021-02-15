@@ -22,9 +22,13 @@ namespace CarRent.Data
             return new Customer{Id=0, FirstName="Hans", LastName="Müller"};
         }
 
-        public Customer GetCustomerByName(string name)
+        public IEnumerable<Customer> GetCustomerByName(string name)
         {
-            return new Customer{Id=2, FirstName="Markus", LastName="Köppel"};
+            var customers = new List<Customer>
+            {
+                new Customer{Id=2, FirstName="Markus", LastName="Köppel"}
+            };
+            return customers;
         }
     }
 }

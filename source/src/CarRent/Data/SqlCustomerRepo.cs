@@ -22,10 +22,19 @@ namespace CarRent.Data
             return _context.Customers.FirstOrDefault(p => p.Id == id);
         }
 
-        public Customer GetCustomerByName(string name)
+        public IEnumerable<Customer> GetCustomerByName(string name)
         {
-            //currently only possible with lastname
-            return _context.Customers.FirstOrDefault(p => p.LastName == name);
+            List<Customer> list = _context.Customers.ToList();
+            List<Customer> alteredList = new List<Customer>();
+
+            foreach(Customer customer in list)
+            {
+                if (customer.FirstName.ToLower() == name.ToLower() || customer.LastName.ToLower() == name.ToLower())
+                {
+                    alteredList.Add(customer);
+                }
+            }
+            return alteredList;
         }
     }
 }

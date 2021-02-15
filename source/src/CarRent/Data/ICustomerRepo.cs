@@ -7,7 +7,7 @@ namespace CarRent.Data
     {
         IEnumerable<Customer> GetAllCustomers();
         Customer GetCustomerById(int id);
-        Customer GetCustomerByName(string name);
+        IEnumerable<Customer> GetCustomerByName(string name);
 
     }
 }

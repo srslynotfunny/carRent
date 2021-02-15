@@ -26,17 +26,17 @@ namespace CarRent.Controllers
             return Ok(customerItems);
         }
 
-        //api/customers/id?5
-        [HttpGet("id")]
-        public ActionResult <Customer> GetCustomerById([FromQuery]int id)
+        //api/customers/5
+        [HttpGet("{id}")]
+        public ActionResult <Customer> GetCustomerById(int id)
         {
             var customerItem = _repository.GetCustomerById(id);
             return Ok(customerItem);
         }
 
-        //api/customers/name?peter
-        [HttpGet("name")]
-        public ActionResult <Customer> GetCustomerByName([FromQuery]string name)
+        //api/customers/name/peter
+        [HttpGet("name/{name}")]
+        public ActionResult <IEnumerable<Customer>> GetCustomerByName(string name)
         {
             var customerItem = _repository.GetCustomerByName(name);
             return Ok(customerItem);
