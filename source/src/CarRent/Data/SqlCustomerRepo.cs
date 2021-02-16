@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarRent.Models;
@@ -12,6 +13,16 @@ namespace CarRent.Data
         {
             _context = context;
         }
+
+        public void CreateCustomer(Customer customer)
+        {
+            if(customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            _context.Customers.Add(customer);
+        }
+
         public IEnumerable<Customer> GetAllCustomers()
         {
             return _context.Customers.ToList();
@@ -35,6 +46,11 @@ namespace CarRent.Data
                 }
             }
             return alteredList;
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }

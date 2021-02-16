@@ -5,6 +5,11 @@ namespace CarRent.Data
 {
     public class MockCarRepo : ICarRepo
     {
+        public void CreateCar(Car car)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Car> GetAllCars()
         {
             var cars = new List<Car>
@@ -20,6 +25,11 @@ namespace CarRent.Data
         public Car GetCarById(int id)
         {
             return new Car{Id=0, Manufacturer="BMW", Model="M2", Class="luxury"};
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

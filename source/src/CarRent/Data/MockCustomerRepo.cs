@@ -5,6 +5,11 @@ namespace CarRent.Data
 {
     public class MockCustomerRepo : ICustomerRepo
     {
+        public void CreateCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Customer> GetAllCustomers()
         {
             var customers = new List<Customer>
@@ -29,6 +34,11 @@ namespace CarRent.Data
                 new Customer{Id=2, FirstName="Markus", LastName="Köppel"}
             };
             return customers;
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
