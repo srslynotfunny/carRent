@@ -24,10 +24,10 @@ namespace CarRent.Controllers
 
         //api/cars
         [HttpGet]
-        public ActionResult <IEnumerable<Car>> GetAllCars()
+        public ActionResult <IEnumerable<CarReadDto>> GetAllCars()
         {
             var carItems = _repository.GetAllCars();
-            return Ok(carItems);
+            return Ok(_mapper.Map<IEnumerable<CarReadDto>>(carItems));
         }
 
         //api/cars/5

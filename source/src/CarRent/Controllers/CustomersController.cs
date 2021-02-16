@@ -25,10 +25,10 @@ namespace CarRent.Controllers
 
         //api/customers
         [HttpGet]
-        public ActionResult <IEnumerable<Customer>> GetAllCustomers()
+        public ActionResult <IEnumerable<CustomerReadDto>> GetAllCustomers()
         {
             var customerItems = _repository.GetAllCustomers();
-            return Ok(customerItems);
+            return Ok(_mapper.Map<IEnumerable<CustomerReadDto>>(customerItems));
         }
 
         //api/customers/5
@@ -45,11 +45,11 @@ namespace CarRent.Controllers
 
         //api/customers/name/peter
         [HttpGet("name/{name}")]
-        public ActionResult <IEnumerable<Customer>> GetCustomerByName(string name)
+        public ActionResult <IEnumerable<CustomerReadDto>> GetCustomerByName(string name)
         {
             var customerItems = _repository.GetCustomerByName(name);
             
-            return Ok(customerItems);
+            return Ok(_mapper.Map<IEnumerable<CustomerReadDto>>(customerItems));
         }
 
         //api/customers
