@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CarRent.Controllers
 {
-    //can also use api/cars --> same result
     [Route("api/[controller]")]
     [ApiController]
     public class CarsController : ControllerBase
@@ -21,7 +20,7 @@ namespace CarRent.Controllers
 
         //api/cars
         [HttpGet]
-        public ActionResult <IEnumerable<Car>> GetAllCars()     //Name spielt hier keine Rolle, Benennung macht Sinn
+        public ActionResult <IEnumerable<Car>> GetAllCars()
         {
             var carItems = _repository.GetAllCars();
             return Ok(carItems);
@@ -31,9 +30,12 @@ namespace CarRent.Controllers
         [HttpGet("{id}")]
         public ActionResult <int> GetCarById(int id)
         {
-            //debugging
             var carItem = _repository.GetCarById(id);
-            return Ok(carItem);
+            if(carItem != null)
+            {
+                return Ok(carItem);
+            }
+            return NotFound();
         }
     }
 }

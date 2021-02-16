@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CarRent.Data;
 using CarRent.Models;
@@ -31,7 +32,11 @@ namespace CarRent.Controllers
         public ActionResult <Customer> GetCustomerById(int id)
         {
             var customerItem = _repository.GetCustomerById(id);
-            return Ok(customerItem);
+            if(customerItem != null)
+            {
+                return Ok(customerItem);
+            }
+            return NotFound();
         }
 
         //api/customers/name/peter
@@ -39,6 +44,7 @@ namespace CarRent.Controllers
         public ActionResult <IEnumerable<Customer>> GetCustomerByName(string name)
         {
             var customerItems = _repository.GetCustomerByName(name);
+            
             return Ok(customerItems);
         }
 
