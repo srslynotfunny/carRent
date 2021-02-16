@@ -4,6 +4,8 @@ namespace CarRent.Models
 {
     public class Car
     {
+        
+
         [Key]
         public int Id { get; set; }
 
@@ -18,5 +20,10 @@ namespace CarRent.Models
         [Required]
         [MaxLength(10)]
         public string Class { get; set; }
+
+        [Required]
+        [MaxLength(10)]
+        public int PricePerDay { get; set; }
+        
     }
 }
