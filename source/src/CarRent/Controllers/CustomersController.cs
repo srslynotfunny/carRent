@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using AutoMapper;
 using CarRent.Data;
+using CarRent.Dtos;
 using CarRent.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +13,12 @@ namespace CarRent.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerRepo _repository;
+        private readonly IMapper _mapper;
 
-        public CustomersController(ICustomerRepo repository)
+        public CustomersController(ICustomerRepo repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         //private readonly MockCustomerRepo _repository = new MockCustomerRepo();
@@ -29,12 +33,12 @@ namespace CarRent.Controllers
 
         //api/customers/5
         [HttpGet("{id}")]
-        public ActionResult <Customer> GetCustomerById(int id)
+        public ActionResult <CustomerReadDto> GetCustomerById(int id)
         {
             var customerItem = _repository.GetCustomerById(id);
             if(customerItem != null)
             {
-                return Ok(customerItem);
+                return Ok(_mapper.Map<CustomerReadDto>(customerItem));
             }
             return NotFound();
         }
