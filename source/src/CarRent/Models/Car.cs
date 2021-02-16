@@ -21,7 +21,6 @@ namespace CarRent.Models
         [MaxLength(10)]
         public string Class { get; set; }
 
-        [Required]
         [MaxLength(10)]
         public int PricePerDay { get; set; }
         
