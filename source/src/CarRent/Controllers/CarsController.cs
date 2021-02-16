@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using CarRent.Data;
+using CarRent.Dtos;
 using CarRent.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,12 +32,12 @@ namespace CarRent.Controllers
 
         //api/cars/5
         [HttpGet("{id}")]
-        public ActionResult <Car> GetCarById(int id)
+        public ActionResult <CarReadDto> GetCarById(int id)
         {
             var carItem = _repository.GetCarById(id);
             if(carItem != null)
             {
-                return Ok(carItem);
+                return Ok(_mapper.Map<CarReadDto>(carItem));
             }
             return NotFound();
         }
