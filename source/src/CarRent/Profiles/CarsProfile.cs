@@ -8,7 +8,10 @@ namespace CarRent.Profiles
     {
         public CarsProfile()
         {
+            //Source -> Target
             CreateMap<Car, CarReadDto>();
+            
+            CreateMap<CarCreateDto, Car>();
         }
     }
 }

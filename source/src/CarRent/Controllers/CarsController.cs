@@ -41,5 +41,30 @@ namespace CarRent.Controllers
             }
             return NotFound();
         }
+
+        //api/cars
+        [HttpPost]
+        public ActionResult <CarReadDto> CreateCar(CarCreateDto carCreateDto)
+        {
+            var carModel = _mapper.Map<Car>(carCreateDto);
+            switch (carModel.Class.ToString())
+            {
+                case "Luxury":
+                    carModel.PricePerDay = 100;
+                    break;
+                case "Medium":
+                    carModel.PricePerDay = 60;
+                    break;
+                case "Easy":
+                    carModel.PricePerDay = 40;
+                    break;
+                default:
+                    return BadRequest();
+            }
+            _repository.CreateCar(carModel);
+            _repository.SaveChanges();
+
+            return (_mapper.Map<CarReadDto>(carModel));
+        }
     }
 }
