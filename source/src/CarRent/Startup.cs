@@ -15,6 +15,7 @@ using System.Web;
 using CarRent.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using AutoMapper;
 
 namespace CarRent
 {
@@ -50,6 +51,7 @@ namespace CarRent
             //services.AddScoped<ICustomerRepo, MockCustomerRepo>();
             services.AddScoped<ICarRepo, SqlCarRepo>();
             services.AddScoped<ICustomerRepo, SqlCustomerRepo>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,10 +77,6 @@ namespace CarRent
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                /*endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
-                );*/
             });
         }
     }

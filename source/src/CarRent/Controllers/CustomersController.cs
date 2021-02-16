@@ -38,8 +38,10 @@ namespace CarRent.Controllers
         [HttpGet("name/{name}")]
         public ActionResult <IEnumerable<Customer>> GetCustomerByName(string name)
         {
-            var customerItem = _repository.GetCustomerByName(name);
-            return Ok(customerItem);
+            var customerItems = _repository.GetCustomerByName(name);
+            return Ok(customerItems);
         }
+
+        //api/customers
     }
 }
