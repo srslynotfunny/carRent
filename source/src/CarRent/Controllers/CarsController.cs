@@ -71,7 +71,7 @@ namespace CarRent.Controllers
 
         //api/cars/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateCar(int id, CarUpdateDto carUpdateDto)
+        public ActionResult <CarReadDto> UpdateCar(int id, CarUpdateDto carUpdateDto)
         {
             var carModelFromRepo = _repository.GetCarById(id);
             if(carModelFromRepo == null)
@@ -83,7 +83,7 @@ namespace CarRent.Controllers
 
             _repository.UpdateCar(carModelFromRepo);
             _repository.SaveChanges();
-            return NoContent();
+            return Ok(_mapper.Map<CarReadDto>(carModelFromRepo));
         }
     }
 }
