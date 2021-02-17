@@ -52,5 +52,10 @@ namespace CarRent.Data
         {
             return (_context.SaveChanges() >= 0);
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            //do nothing
+        }
     }
 }

@@ -64,5 +64,22 @@ namespace CarRent.Controllers
 
             return CreatedAtRoute(nameof(GetCustomerById), new {Id = customerReadDto.Id}, customerReadDto);
         }
+
+        //api/customer/{id}
+        [HttpPut("{id}")]
+        public ActionResult <CustomerReadDto> UpdateCustomer(int id, CustomerUpdateDto customerUpdateDto)
+        {
+            var customerModelFromRepo = _repository.GetCustomerById(id);
+            if(customerModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(customerUpdateDto, customerModelFromRepo);
+
+            _repository.UpdateCustomer(customerModelFromRepo);
+            _repository.SaveChanges();
+            return Ok(_mapper.Map<CustomerReadDto>(customerModelFromRepo));
+        }
     }
 }

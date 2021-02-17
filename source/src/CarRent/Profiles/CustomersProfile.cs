@@ -10,6 +10,7 @@ namespace CarRent.Profiles
         {
             CreateMap<Customer, CustomerReadDto>();
             CreateMap<CustomerCreateDto, Customer>();
+            CreateMap<CustomerUpdateDto, Customer>();
         }
     }
 }

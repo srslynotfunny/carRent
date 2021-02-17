@@ -40,5 +40,10 @@ namespace CarRent.Data
         {
             throw new System.NotImplementedException();
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
