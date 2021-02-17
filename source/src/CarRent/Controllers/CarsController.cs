@@ -31,7 +31,7 @@ namespace CarRent.Controllers
         }
 
         //api/cars/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetCarById")]
         public ActionResult <CarReadDto> GetCarById(int id)
         {
             var carItem = _repository.GetCarById(id);
@@ -42,7 +42,7 @@ namespace CarRent.Controllers
             return NotFound();
         }
 
-        //api/cars
+        //api/cars/
         [HttpPost]
         public ActionResult <CarReadDto> CreateCar(CarCreateDto carCreateDto)
         {
@@ -64,7 +64,9 @@ namespace CarRent.Controllers
             _repository.CreateCar(carModel);
             _repository.SaveChanges();
 
-            return (_mapper.Map<CarReadDto>(carModel));
+            var carReadDto = _mapper.Map<CarReadDto>(carModel);
+
+            return CreatedAtRoute(nameof(GetCarById), new {Id = carReadDto.Id}, carReadDto);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace CarRent.Profiles
         public CustomersProfile()
         {
             CreateMap<Customer, CustomerReadDto>();
+            CreateMap<CustomerCreateDto, Customer>();
         }
     }
 }

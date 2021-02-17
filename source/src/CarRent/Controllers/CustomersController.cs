@@ -32,7 +32,7 @@ namespace CarRent.Controllers
         }
 
         //api/customers/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetCustomerById")]
         public ActionResult <CustomerReadDto> GetCustomerById(int id)
         {
             var customerItem = _repository.GetCustomerById(id);
@@ -50,6 +50,19 @@ namespace CarRent.Controllers
             var customerItems = _repository.GetCustomerByName(name);
             
             return Ok(_mapper.Map<IEnumerable<CustomerReadDto>>(customerItems));
+        }
+
+        //api/customer/
+        [HttpPost]
+        public ActionResult <CustomerReadDto> CreateCustomer(CustomerCreateDto customerCreateDto)
+        {
+            var customerModel = _mapper.Map<Customer>(customerCreateDto);
+            _repository.CreateCustomer(customerModel);
+            _repository.SaveChanges();
+
+            var customerReadDto = _mapper.Map<CustomerReadDto>(customerModel);
+
+            return CreatedAtRoute(nameof(GetCustomerById), new {Id = customerReadDto.Id}, customerReadDto);
         }
     }
 }
