@@ -16,6 +16,7 @@ using CarRent.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using AutoMapper;
+using Newtonsoft.Json.Serialization;
 
 namespace CarRent
 {
@@ -40,7 +41,10 @@ namespace CarRent
                             .CharSetBehavior(CharSetBehavior.NeverAppend))
             );
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s => {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent", Version = "v1" });
