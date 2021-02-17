@@ -40,7 +40,7 @@ namespace CarRent.Data
 
         public void UpdateCar(Car car)
         {
-            throw new NotImplementedException();
+            //doing nothing
         }
     }
 }
