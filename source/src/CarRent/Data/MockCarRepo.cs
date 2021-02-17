@@ -31,5 +31,10 @@ namespace CarRent.Data
         {
             throw new System.NotImplementedException();
         }
+
+        public void UpdateCar(Car car)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -37,5 +37,10 @@ namespace CarRent.Data
         {
             return (_context.SaveChanges() >= 0);
         }
+
+        public void UpdateCar(Car car)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
