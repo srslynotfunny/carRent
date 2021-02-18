@@ -3,6 +3,7 @@ using AutoMapper;
 using CarRent.Data;
 using CarRent.Dtos;
 using CarRent.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRent.Controllers
@@ -83,6 +84,45 @@ namespace CarRent.Controllers
 
             _repository.UpdateCar(carModelFromRepo);
             _repository.SaveChanges();
+            return Ok(_mapper.Map<CarReadDto>(carModelFromRepo));
+        }
+
+        //api/cars/{id}
+        [HttpPatch("{id}")]
+        public ActionResult <CarReadDto> PartialUpdateCar(int id, JsonPatchDocument<CarUpdateDto> patchdoc)
+        {
+            var carModelFromRepo = _repository.GetCarById(id);
+            if(carModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var carToPatch = _mapper.Map<CarUpdateDto>(carModelFromRepo);
+            patchdoc.ApplyTo(carToPatch, ModelState);
+            if(!TryValidateModel(carToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(carToPatch, carModelFromRepo);
+
+            switch (carModelFromRepo.Class.ToString())
+            {
+                case "Luxury":
+                    carModelFromRepo.PricePerDay = 100;
+                    break;
+                case "Medium":
+                    carModelFromRepo.PricePerDay = 60;
+                    break;
+                case "Easy":
+                    carModelFromRepo.PricePerDay = 40;
+                    break;
+                default:
+                    return BadRequest();
+            }
+            _repository.UpdateCar(carModelFromRepo);
+            _repository.SaveChanges();
+
             return Ok(_mapper.Map<CarReadDto>(carModelFromRepo));
         }
     }
