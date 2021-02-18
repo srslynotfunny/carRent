@@ -10,6 +10,11 @@ namespace CarRent.Data
             throw new System.NotImplementedException();
         }
 
+        public void DeleteCar(Car car)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Car> GetAllCars()
         {
             var cars = new List<Car>

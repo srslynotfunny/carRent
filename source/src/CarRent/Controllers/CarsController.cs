@@ -125,5 +125,21 @@ namespace CarRent.Controllers
 
             return Ok(_mapper.Map<CarReadDto>(carModelFromRepo));
         }
+
+        //api/cars/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCar(int id)
+        {
+            var carModelFromRepo = _repository.GetCarById(id);
+            if(carModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _repository.DeleteCar(carModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
