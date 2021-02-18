@@ -4,6 +4,7 @@ using AutoMapper;
 using CarRent.Data;
 using CarRent.Dtos;
 using CarRent.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRent.Controllers
@@ -79,6 +80,31 @@ namespace CarRent.Controllers
 
             _repository.UpdateCustomer(customerModelFromRepo);
             _repository.SaveChanges();
+            return Ok(_mapper.Map<CustomerReadDto>(customerModelFromRepo));
+        }
+
+        //api/customer/{id}
+        [HttpPatch("{id}")]
+        public ActionResult <CustomerReadDto> PartialUpdateCustomer(int id, JsonPatchDocument<CustomerUpdateDto> patchDoc)
+        {
+           var customerModelFromRepo = _repository.GetCustomerById(id);
+            if(customerModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var customerToPatch = _mapper.Map<CustomerUpdateDto>(customerModelFromRepo);
+            patchDoc.ApplyTo(customerToPatch, ModelState);
+            if(!TryValidateModel(customerToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(customerToPatch, customerModelFromRepo);
+
+            _repository.UpdateCustomer(customerModelFromRepo);
+            _repository.SaveChanges();
+
             return Ok(_mapper.Map<CustomerReadDto>(customerModelFromRepo));
         }
     }
