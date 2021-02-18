@@ -23,6 +23,15 @@ namespace CarRent.Data
             _context.Customers.Add(customer);
         }
 
+        public void DeleteCustomer(Customer customer)
+        {
+            if(customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            _context.Customers.Remove(customer);
+        }
+
         public IEnumerable<Customer> GetAllCustomers()
         {
             return _context.Customers.ToList();

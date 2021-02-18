@@ -10,6 +10,11 @@ namespace CarRent.Data
             throw new System.NotImplementedException();
         }
 
+        public void DeleteCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Customer> GetAllCustomers()
         {
             var customers = new List<Customer>
