@@ -24,7 +24,12 @@ namespace CarRent.Data
 
         public void DeleteReservation(Reservation reservation)
         {
-            throw new System.NotImplementedException();
+            if(reservation == null)
+            {
+                throw new ArgumentNullException(nameof(reservation));
+            }
+
+            _context.Reservations.Remove(reservation);
         }
 
         public IEnumerable<Reservation> GetAllReservations()
