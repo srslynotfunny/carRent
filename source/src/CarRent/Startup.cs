@@ -53,8 +53,10 @@ namespace CarRent
             //additional code
             //services.AddScoped<ICarRepo, MockCarRepo>();
             //services.AddScoped<ICustomerRepo, MockCustomerRepo>();
+            //services.AddScoped<IReservationRepo, MockReservationRepo>();
             services.AddScoped<ICarRepo, SqlCarRepo>();
             services.AddScoped<ICustomerRepo, SqlCustomerRepo>();
+            services.AddScoped<IReservationRepo, SqlReservationRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
