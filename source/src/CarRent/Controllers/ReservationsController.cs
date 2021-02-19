@@ -4,6 +4,7 @@ using CarRent.Data;
 using CarRent.Dtos;
 using CarRent.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace CarRent.Controllers
 {
@@ -62,6 +63,31 @@ namespace CarRent.Controllers
             }
 
             _mapper.Map(reservationUpdateDto, reservationModelFromRepo);
+
+            _repository.UpdateReservation(reservationModelFromRepo);
+            _repository.SaveChanges();
+
+            return Ok(_mapper.Map<ReservationReadDto>(reservationModelFromRepo));
+        }
+
+        //api/reservations/{id}
+        [HttpPatch("{id}")]
+        public ActionResult <ReservationReadDto> PartialUpdateReservation(int id, JsonPatchDocument<ReservationUpdateDto> patchDoc)
+        {
+            var reservationModelFromRepo = _repository.GetReservationById(id);
+            if(reservationModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var reservationToPatch = _mapper.Map<ReservationUpdateDto>(reservationModelFromRepo);
+            patchDoc.ApplyTo(reservationToPatch, ModelState);
+            if(!TryValidateModel(reservationToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(reservationToPatch, reservationModelFromRepo);
 
             _repository.UpdateReservation(reservationModelFromRepo);
             _repository.SaveChanges();
