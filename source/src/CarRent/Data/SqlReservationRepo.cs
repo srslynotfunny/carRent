@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarRent.Models;
@@ -14,7 +15,11 @@ namespace CarRent.Data
         }
         public void CreateReservation(Reservation reservation)
         {
-            throw new System.NotImplementedException();
+            if(reservation == null)
+            {
+                throw new ArgumentNullException(nameof(reservation));
+            }
+            _context.Reservations.Add(reservation);
         }
 
         public void DeleteReservation(Reservation reservation)
@@ -34,7 +39,7 @@ namespace CarRent.Data
 
         public bool SaveChanges()
         {
-            throw new System.NotImplementedException();
+            return (_context.SaveChanges() >= 0);
         }
 
         public void UpdateReservation(Reservation reservation)

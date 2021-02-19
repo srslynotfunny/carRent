@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using AutoMapper;
 using CarRent.Data;
+using CarRent.Dtos;
 using CarRent.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,26 +12,43 @@ namespace CarRent.Controllers
     public class ReservationsController : ControllerBase
     {
         private readonly IReservationRepo _repository;
-        public ReservationsController(IReservationRepo repository)
+        private readonly IMapper _mapper;
+
+        public ReservationsController(IReservationRepo repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
         //private readonly MockReservationRepo _repository = new MockReservationRepo();
 
         //api/reservations/
         [HttpGet]
-        public ActionResult <IEnumerable<Reservation>> GetAllReservations()
+        public ActionResult <IEnumerable<ReservationReadDto>> GetAllReservations()
         {
             var reservationItems = _repository.GetAllReservations();
-            return Ok(reservationItems);
+            return Ok(_mapper.Map<IEnumerable<ReservationReadDto>>(reservationItems));
         }
 
         //api/reservations/{id}
-        [HttpGet("{id}")]
-        public ActionResult <Reservation> GetReservationById(int id)
+        [HttpGet("{id}", Name="GetReservationById")]
+        public ActionResult <ReservationReadDto> GetReservationById(int id)
         {
             var reservationItem = _repository.GetReservationById(id);
-            return Ok(reservationItem);
+            return Ok(_mapper.Map<ReservationReadDto>(reservationItem));
+        }
+
+        //api/reservations
+        [HttpPost]
+        public ActionResult <ReservationReadDto> CreateReservation(ReservationCreateDto reservationCreateDto)
+        {
+            var reservationModel = _mapper.Map<Reservation>(reservationCreateDto);
+
+            _repository.CreateReservation(reservationModel);
+            _repository.SaveChanges();
+
+            var reservationReadDto = _mapper.Map<ReservationReadDto>(reservationModel);
+
+            return CreatedAtRoute(nameof(GetReservationById), new {Id = reservationReadDto.Id}, reservationReadDto);
         }
     }
 }
