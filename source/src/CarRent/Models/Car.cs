@@ -23,6 +23,7 @@ namespace CarRent.Models
 
         [MaxLength(10)]
         public int PricePerDay { get; set; }
+        public bool Reserved { get; set; }
         
     }
 }
