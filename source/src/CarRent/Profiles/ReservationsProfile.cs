@@ -10,6 +10,7 @@ namespace CarRent.Profiles
         {
             CreateMap<Reservation, ReservationReadDto>();
             CreateMap<ReservationCreateDto, Reservation>();
+            CreateMap<ReservationUpdateDto, Reservation>();
         }
     }
 }

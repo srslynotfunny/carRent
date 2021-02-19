@@ -50,5 +50,23 @@ namespace CarRent.Controllers
 
             return CreatedAtRoute(nameof(GetReservationById), new {Id = reservationReadDto.Id}, reservationReadDto);
         }
+
+        //api/reservations/{id}
+        [HttpPut("{id}")]
+        public ActionResult <ReservationReadDto> UpdateReservation(int id, ReservationUpdateDto reservationUpdateDto)
+        {
+            var reservationModelFromRepo = _repository.GetReservationById(id);
+            if(reservationModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(reservationUpdateDto, reservationModelFromRepo);
+
+            _repository.UpdateReservation(reservationModelFromRepo);
+            _repository.SaveChanges();
+
+            return Ok(_mapper.Map<ReservationReadDto>(reservationModelFromRepo));
+        }
     }
 }

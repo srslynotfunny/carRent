@@ -44,7 +44,7 @@ namespace CarRent.Data
 
         public void UpdateReservation(Reservation reservation)
         {
-            throw new System.NotImplementedException();
+            //do nothing
         }
     }
 }
