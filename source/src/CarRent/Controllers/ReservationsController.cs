@@ -92,6 +92,25 @@ namespace CarRent.Controllers
 
             _mapper.Map(reservationUpdateDto, reservationModelFromRepo);
 
+            var days = (reservationModelFromRepo.EndDate - reservationModelFromRepo.BeginDate).TotalDays;
+            int luxuryCosts = 100;
+            int mediumCosts = 60;
+            int easyCosts = 40;
+            switch (reservationModelFromRepo.CarClass.ToString().ToLower())
+            {
+                case "luxury":
+                    reservationModelFromRepo.Costs = (int)days * luxuryCosts;
+                    break;
+                case "medium":
+                    reservationModelFromRepo.Costs = (int)days * mediumCosts;
+                    break;
+                case "easy":
+                    reservationModelFromRepo.Costs = (int)days * easyCosts;
+                    break;
+                default:
+                    return BadRequest("CarClass not valid");
+            }
+
             _repository.UpdateReservation(reservationModelFromRepo);
             _repository.SaveChanges();
 
@@ -116,6 +135,25 @@ namespace CarRent.Controllers
             }
 
             _mapper.Map(reservationToPatch, reservationModelFromRepo);
+
+            var days = (reservationModelFromRepo.EndDate - reservationModelFromRepo.BeginDate).TotalDays;
+            int luxuryCosts = 100;
+            int mediumCosts = 60;
+            int easyCosts = 40;
+            switch (reservationModelFromRepo.CarClass.ToString().ToLower())
+            {
+                case "luxury":
+                    reservationModelFromRepo.Costs = (int)days * luxuryCosts;
+                    break;
+                case "medium":
+                    reservationModelFromRepo.Costs = (int)days * mediumCosts;
+                    break;
+                case "easy":
+                    reservationModelFromRepo.Costs = (int)days * easyCosts;
+                    break;
+                default:
+                    return BadRequest("CarClass not valid");
+            }
 
             _repository.UpdateReservation(reservationModelFromRepo);
             _repository.SaveChanges();
