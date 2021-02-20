@@ -10,8 +10,6 @@ namespace CarRent.Models
         [Required]
         public int CustomerId { get; set; }
         [Required]
-        public int CarId { get; set; }
-        [Required]
         public string CarClass { get; set; }
         [Required]
         public DateTime BeginDate { get; set; }

@@ -8,7 +8,7 @@ namespace CarRent.Dtos
         [Required]
         public int CustomerId { get; set; }
         [Required]
-        public int CarId { get; set; }
+        public string CarClass { get; set; }
         [Required]
         public DateTime BeginDate { get; set; }
         [Required]

@@ -3,14 +3,16 @@ using System;
 using CarRent.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRent.Migrations
 {
     [DbContext(typeof(CarRentContext))]
-    partial class CarRentContextModelSnapshot : ModelSnapshot
+    [Migration("20210220001330_addedReservedFieldForCar")]
+    partial class addedReservedFieldForCar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,6 +100,9 @@ namespace CarRent.Migrations
                     b.Property<string>("CarClass")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Costs")
                         .HasColumnType("int");
