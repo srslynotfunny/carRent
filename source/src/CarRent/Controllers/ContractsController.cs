@@ -101,36 +101,6 @@ namespace CarRent.Controllers
         {
             var contractModel = _mapper.Map<Contract>(contractCreateDto);
             contractModel = InformationFill(contractModel);
-            //additional checks etc
-            //Console.WriteLine(contractCreateDto.CustomerId);
-
-            //var customerModel = _customer.GetCustomerById(2);
-
-            //var carModel = _car.GetCarById(contractCreateDto.CarId);
-
-
-            //Console.WriteLine(customerModel.Id);
-            //var reservationModel = _reservation.GetReservationById(contractModel.ReservationId);
-            //contractModel.Name = customerModel.FirstName;
-
-            /*
-            contractModel.Name = customerModel.FirstName + " " + customerModel.LastName;
-            
-            contractModel.Street = customerModel.Street;
-            contractModel.City = customerModel.City;
-            contractModel.Postalcode = customerModel.Postalcode;
-
-            contractModel.Manufacturer = carModel.Manufacturer;
-            contractModel.Model = carModel.Model;
-            contractModel.Class = carModel.Class;
-            contractModel.PricePerDay = carModel.PricePerDay;
-
-            contractModel.BeginDate = reservationModel.BeginDate;
-            contractModel.EndDate = reservationModel.EndDate;
-            contractModel.Costs = reservationModel.Costs;
-
-            carModel.Reserved = true;
-            _car.SaveChanges();*/
 
             _repository.CreateContract(contractModel);
             _repository.SaveChanges();
