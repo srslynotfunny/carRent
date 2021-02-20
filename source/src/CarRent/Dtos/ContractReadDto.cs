@@ -15,7 +15,7 @@ namespace CarRent.Dtos
         public string Model { get; set; }
         public string Class { get; set; }
         public int PricePerDay { get; set; }
-        public int ReservationId { get; set; }
+        //public int ReservationId { get; set; }
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
         public int Costs { get; set; }

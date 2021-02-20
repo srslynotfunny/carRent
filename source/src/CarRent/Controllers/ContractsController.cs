@@ -53,13 +53,10 @@ namespace CarRent.Controllers
         public Contract InformationFill(Contract contractToFill)
         {
             var contract = contractToFill;
-            /*if(_repository.GetContractById(contract.Id) == null)
+            /*
+            if(_repository.GetContractById(contract.Id) == null)
             {
                 throw new ArgumentNullException(nameof(contract));
-            }
-            if(_customer.GetCustomerById(contract.CustomerId) == null)
-            {
-                throw new ArgumentNullException(nameof(contract.CustomerId));
             }
             if(_car.GetCarById(contract.CarId) == null)
             {
@@ -69,10 +66,12 @@ namespace CarRent.Controllers
             {
                 throw new ArgumentNullException(nameof(contract.ReservationId));
             }*/
-            var customerModel = _customer.GetCustomerById(contract.CustomerId);
+            //var customerModel = _customer.GetCustomerById(_reservation.GetReservationById(contract.ReservationId));
             var carModel = _car.GetCarById(contract.CarId);
             var reservationModel = _reservation.GetReservationById(contract.ReservationId);
+            var customerModel = _customer.GetCustomerById(reservationModel.CustomerId);
 
+            contract.CustomerId = reservationModel.CustomerId;
             contract.Name = customerModel.FirstName + " " + customerModel.LastName;
             contract.Street = customerModel.Street;
             contract.City = customerModel.City;
@@ -103,7 +102,7 @@ namespace CarRent.Controllers
             var contractModel = _mapper.Map<Contract>(contractCreateDto);
             contractModel = InformationFill(contractModel);
             //additional checks etc
-            Console.WriteLine(contractCreateDto.CustomerId);
+            //Console.WriteLine(contractCreateDto.CustomerId);
 
             //var customerModel = _customer.GetCustomerById(2);
 

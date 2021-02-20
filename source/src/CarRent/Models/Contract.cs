@@ -7,7 +7,6 @@ namespace CarRent.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public int CustomerId { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
