@@ -1,7 +1,7 @@
 Einführung und Ziele {#section-introduction-and-goals}
 ====================
 
-In diesem Projekt wird eine Autovermietung von A-Z umgesetzt. Dabei ist alles von Auto- und Kundenverwaltung
+In diesem Projekt wird eine Autovermietung in Form einer Web-API von A-Z umgesetzt. Dabei ist alles von Auto- und Kundenverwaltung
 bis hin zur Reservation und Mietvertragerstellung inbegriffen.
 
 Folgende Anforderungen wurden gestellt:
