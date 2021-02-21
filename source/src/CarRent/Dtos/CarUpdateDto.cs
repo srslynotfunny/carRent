@@ -15,5 +15,7 @@ namespace CarRent.Dtos
         [Required]
         [MaxLength(10)]
         public string Class { get; set; }
+
+        public bool Reserved { get; set; }
     }
 }
