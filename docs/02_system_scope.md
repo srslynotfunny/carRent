@@ -18,4 +18,3 @@ Folgende Möglichkeiten mit Http Requests sind gegeben:
 ![Http Requests](/images/schnittstellenHttp.png)
 
 Ausnahme: Beim Contract ist die HttpPut nicht möglich.
-
