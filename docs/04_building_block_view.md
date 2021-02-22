@@ -15,7 +15,7 @@ Bausteinsicht {#section-building-block-view}
 
 Im folgendem Diagramm ist aufgezeigt, wie der Zugriff auf die Car Klasse gewährleistet ist.
 
-![carClass Access](/images/systemBausteine.png)
+![carClass Access](/images/architecture.png)
 
 Speziell hier ist der Baustein "Automapper". Mit diesem Paket wird die Car Klasse zur CarReadDto Klasse gemappt.
 Die CarReadDto (Data Transfer Object) wird benutzt, um dem Benutzer nur gewollte Informationen mitzuteilen. In dem Fall der Car Klasse
