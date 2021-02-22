@@ -20,8 +20,6 @@ namespace CarRent.Controllers
             _repository = repository;
             _mapper = mapper;
         }
-        
-        //private readonly MockCarRepo _repository = new MockCarRepo();
 
         //api/cars
         [HttpGet]

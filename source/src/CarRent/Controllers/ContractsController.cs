@@ -28,8 +28,6 @@ namespace CarRent.Controllers
             _reservation = reservation;
         }
 
-        //private readonly MockContractRepo _repository = new MockContractRepo();
-
         //api/contracts/
         [HttpGet]
         public ActionResult <IEnumerable<ContractReadDto>> GetAllContracts()
@@ -53,20 +51,6 @@ namespace CarRent.Controllers
         public Contract InformationFill(Contract contractToFill)
         {
             var contract = contractToFill;
-            /*
-            if(_repository.GetContractById(contract.Id) == null)
-            {
-                throw new ArgumentNullException(nameof(contract));
-            }
-            if(_car.GetCarById(contract.CarId) == null)
-            {
-                throw new ArgumentNullException(nameof(contract.CarId));
-            }
-            if(_reservation.GetReservationById(contract.ReservationId) == null)
-            {
-                throw new ArgumentNullException(nameof(contract.ReservationId));
-            }*/
-            //var customerModel = _customer.GetCustomerById(_reservation.GetReservationById(contract.ReservationId));
             var carModel = _car.GetCarById(contract.CarId);
             var reservationModel = _reservation.GetReservationById(contract.ReservationId);
             var customerModel = _customer.GetCustomerById(reservationModel.CustomerId);

@@ -22,8 +22,6 @@ namespace CarRent.Controllers
             _mapper = mapper;
         }
 
-        //private readonly MockCustomerRepo _repository = new MockCustomerRepo();
-
         //api/customers
         [HttpGet]
         public ActionResult <IEnumerable<CustomerReadDto>> GetAllCustomers()

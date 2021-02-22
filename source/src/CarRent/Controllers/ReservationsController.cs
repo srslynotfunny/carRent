@@ -25,7 +25,6 @@ namespace CarRent.Controllers
             _carRepo = carRepo;
             _customerRepo = customerRepo;
         }
-        //private readonly MockReservationRepo _repository = new MockReservationRepo();
 
         //api/reservations/
         [HttpGet]
