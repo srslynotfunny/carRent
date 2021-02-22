@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Arc42 template - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../01_introduction_and_goals/" class="nav-link">01 introduction and goals</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../02_system_scope/" class="nav-link">02 system scope</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../03_solution_strategy/" class="nav-link">03 solution strategy</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../04_building_block_view/" class="nav-link">04 building block view</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../05_runtime_view/" class="nav-link">05 runtime view</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../06_deployment_view/" class="nav-link">06 deployment view</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../about-arc42/" class="nav-link">About arc42</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Arc42 template</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../config/" class="nav-link">Config</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../about-arc42/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../config/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#einfuhrung-und-ziele-section-introduction-and-goals" class="nav-link">Einführung und Ziele {#section-introduction-and-goals}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#aufgabenstellung-_aufgabenstellung" class="nav-link">Aufgabenstellung {#_aufgabenstellung}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#qualitatsziele-_qualit_tsziele" class="nav-link">Qualitätsziele {#_qualit_tsziele}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#stakeholder-_stakeholder" class="nav-link">Stakeholder {#_stakeholder}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#randbedingungen-section-architecture-constraints" class="nav-link">Randbedingungen {#section-architecture-constraints}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#kontextabgrenzung-section-system-scope-and-context" class="nav-link">Kontextabgrenzung {#section-system-scope-and-context}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#fachlicher-kontext-_fachlicher_kontext" class="nav-link">Fachlicher Kontext {#_fachlicher_kontext}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#technischer-kontext-_technischer_kontext" class="nav-link">Technischer Kontext {#_technischer_kontext}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#losungsstrategie-section-solution-strategy" class="nav-link">Lösungsstrategie {#section-solution-strategy}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#bausteinsicht-section-building-block-view" class="nav-link">Bausteinsicht {#section-building-block-view}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#whitebox-gesamtsystem-_whitebox_gesamtsystem" class="nav-link">Whitebox Gesamtsystem {#_whitebox_gesamtsystem}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ebene-2-_ebene_2" class="nav-link">Ebene 2 {#_ebene_2}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ebene-3-_ebene_3" class="nav-link">Ebene 3 {#_ebene_3}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#laufzeitsicht-section-runtime-view" class="nav-link">Laufzeitsicht {#section-runtime-view}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#bezeichnung-laufzeitszenario-1-__emphasis_bezeichnung_laufzeitszenario_1_emphasis" class="nav-link">\&lt;Bezeichnung Laufzeitszenario 1> {#__emphasis_bezeichnung_laufzeitszenario_1_emphasis}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#bezeichnung-laufzeitszenario-2-__emphasis_bezeichnung_laufzeitszenario_2_emphasis" class="nav-link">\&lt;Bezeichnung Laufzeitszenario 2> {#__emphasis_bezeichnung_laufzeitszenario_2_emphasis}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#bezeichnung-laufzeitszenario-n-__emphasis_bezeichnung_laufzeitszenario_n_emphasis" class="nav-link">\&lt;Bezeichnung Laufzeitszenario n> {#__emphasis_bezeichnung_laufzeitszenario_n_emphasis}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#verteilungssicht-section-deployment-view" class="nav-link">Verteilungssicht {#section-deployment-view}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#infrastruktur-ebene-1-_infrastruktur_ebene_1" class="nav-link">Infrastruktur Ebene 1 {#_infrastruktur_ebene_1}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#infrastruktur-ebene-2-_infrastruktur_ebene_2" class="nav-link">Infrastruktur Ebene 2 {#_infrastruktur_ebene_2}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#querschnittliche-konzepte-section-concepts" class="nav-link">Querschnittliche Konzepte {#section-concepts}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#konzept-1-__emphasis_konzept_1_emphasis" class="nav-link">\&lt;Konzept 1> {#__emphasis_konzept_1_emphasis}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#konzept-2-__emphasis_konzept_2_emphasis" class="nav-link">\&lt;Konzept 2> {#__emphasis_konzept_2_emphasis}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#konzept-n-__emphasis_konzept_n_emphasis" class="nav-link">\&lt;Konzept n> {#__emphasis_konzept_n_emphasis}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#entwurfsentscheidungen-section-design-decisions" class="nav-link">Entwurfsentscheidungen {#section-design-decisions}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#qualitatsanforderungen-section-quality-scenarios" class="nav-link">Qualitätsanforderungen {#section-quality-scenarios}</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#qualitatsbaum-_qualit_tsbaum" class="nav-link">Qualitätsbaum {#_qualit_tsbaum}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#qualitatsszenarien-_qualit_tsszenarien" class="nav-link">Qualitätsszenarien {#_qualit_tsszenarien}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#risiken-und-technische-schulden-section-technical-risks" class="nav-link">Risiken und technische Schulden {#section-technical-risks}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#glossar-section-glossary" class="nav-link">Glossar {#section-glossary}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><strong>Über arc42</strong></p>
+<p>arc42, das Template zur Dokumentation von Software- und
+Systemarchitekturen.</p>
+<p>Erstellt von Dr. Gernot Starke, Dr. Peter Hruschka und Mitwirkenden.</p>
+<p>Template Revision: 7.0 DE (asciidoc-based), January 2017</p>
+<p>© We acknowledge that this document uses material from the arc42
+architecture template, <a href="http://www.arc42.de">http://www.arc42.de</a>. Created by Dr. Peter
+Hruschka &amp; Dr. Gernot Starke.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Diese Version des Templates enthält Hilfen und Erläuterungen. Sie
+dient der Einarbeitung in arc42 sowie dem Verständnis der Konzepte.
+Für die Dokumentation eigener System verwenden Sie besser die <em>plain</em>
+Version.</p>
+</blockquote>
+<h1 id="einfuhrung-und-ziele-section-introduction-and-goals">Einführung und Ziele {#section-introduction-and-goals}</h1>
+<p>Beschreibt die wesentlichen Anforderungen und treibenden Kräfte, die bei
+der Umsetzung der Softwarearchitektur und Entwicklung des Systems
+berücksichtigt werden müssen.</p>
+<p>Dazu gehören:</p>
+<ul>
+<li>
+<p>zugrunde liegende Geschäftsziele,</p>
+</li>
+<li>
+<p>wesentliche Aufgabenstellungen und</p>
+</li>
+<li>
+<p>essenzielle fachliche Anforderungen an das System sowie</p>
+</li>
+<li>
+<p>Qualitätsziele für die Architektur und</p>
+</li>
+<li>
+<p>relevante Stakeholder und deren Erwartungshaltung.</p>
+</li>
+</ul>
+<h2 id="aufgabenstellung-_aufgabenstellung">Aufgabenstellung {#_aufgabenstellung}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Kurzbeschreibung der fachlichen Aufgabenstellung, treibenden Kräfte,
+Extrakt (oder Abstract) der Anforderungen. Verweis auf (hoffentlich
+vorliegende) Anforderungsdokumente (mit Versionsbezeichnungen und
+Ablageorten).</p>
+<p><strong>Motivation.</strong></p>
+<p>Aus Sicht der späteren Nutzung ist die Unterstützung einer fachlichen
+Aufgabe oder Verbesserung der Qualität der eigentliche Beweggrund, ein
+neues System zu schaffen oder ein bestehendes zu modifizieren.</p>
+<p><strong>Form.</strong></p>
+<p>Kurze textuelle Beschreibung, eventuell in tabellarischer Use-Case Form.
+Sofern vorhanden, sollte die Aufgabenstellung Verweise auf die
+entsprechenden Anforderungsdokumente enthalten.</p>
+<p>Halten Sie diese Auszüge so knapp wie möglich und wägen Sie Lesbarkeit
+und Redundanzfreiheit gegeneinander ab.</p>
+<h2 id="qualitatsziele-_qualit_tsziele">Qualitätsziele {#_qualit_tsziele}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Die Top-3 bis Top-5 der Qualitätsziele für die Architektur, deren
+Erfüllung oder Einhaltung den maßgeblichen Stakeholdern besonders
+wichtig sind. Gemeint sind hier wirklich Qualitätsziele, die nicht
+unbedingt mit den Zielen des Projekts übereinstimmen. Beachten Sie den
+Unterschied.</p>
+<p><strong>Motivation.</strong></p>
+<p>Weil Qualitätsziele grundlegende Architekturentscheidungen oft
+maßgeblich beeinflussen, sollten Sie die für Ihre Stakeholder relevanten
+Qualitätsziele kennen, möglichst konkret und operationalisierbar.</p>
+<p><strong>Form.</strong></p>
+<p>Tabellarische Darstellung der Qualitätsziele mit möglichst konkreten
+Szenarien, geordnet nach Prioritäten.</p>
+<h2 id="stakeholder-_stakeholder">Stakeholder {#_stakeholder}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Expliziter Überblick über die Stakeholder des Systems -- über alle
+Personen, Rollen oder Organisationen --, die</p>
+<ul>
+<li>
+<p>die Architektur kennen sollten oder</p>
+</li>
+<li>
+<p>von der Architektur überzeugt werden müssen,</p>
+</li>
+<li>
+<p>mit der Architektur oder dem Code arbeiten (z.B. Schnittstellen
+    nutzen),</p>
+</li>
+<li>
+<p>die Dokumentation der Architektur für ihre eigene Arbeit benötigen,</p>
+</li>
+<li>
+<p>Entscheidungen über das System und dessen Entwicklung treffen.</p>
+</li>
+</ul>
+<p><strong>Motivation.</strong></p>
+<p>Sie sollten die Projektbeteiligten und -betroffenen kennen, sonst
+erleben Sie später im Entwicklungsprozess Überraschungen. Diese
+Stakeholder bestimmen unter anderem Umfang und Detaillierungsgrad der
+von Ihnen zu leistenden Arbeit und Ergebnisse.</p>
+<p><strong>Form.</strong></p>
+<p>Tabelle mit Rollen- oder Personennamen, sowie deren Erwartungshaltung
+bezüglich der Architektur und deren Dokumentation.</p>
+<p>+-----------------+-----------------+-----------------------------------+
+| Rolle           | Kontakt         | Erwartungshaltung                 |
++=================+=================+===================================+
+| <em>\&lt;Rolle-1></em>   | <em>\&lt;Kontakt-1></em> | <em>\&lt;Erwartung-1></em>                 |
++-----------------+-----------------+-----------------------------------+
+| <em>\&lt;Rolle-2></em>   | <em>\&lt;Kontakt-2></em> | <em>\&lt;Erwartung-2></em>                 |
++-----------------+-----------------+-----------------------------------+</p>
+<h1 id="randbedingungen-section-architecture-constraints">Randbedingungen {#section-architecture-constraints}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Randbedingungen und Vorgaben, die ihre Freiheiten bezüglich Entwurf,
+Implementierung oder Ihres Entwicklungsprozesses einschränken. Diese
+Randbedingungen gelten manchmal organisations- oder firmenweit über die
+Grenzen einzelner Systeme hinweg.</p>
+<p><strong>Motivation.</strong></p>
+<p>Für eine tragfähige Architektur sollten Sie genau wissen, wo Ihre
+Freiheitsgrade bezüglich der Entwurfsentscheidungen liegen und wo Sie
+Randbedingungen beachten müssen. Sie können Randbedingungen vielleicht
+noch verhandeln, zunächst sind sie aber da.</p>
+<p><strong>Form.</strong></p>
+<p>Einfache Tabellen der Randbedingungen mit Erläuterungen. Bei Bedarf
+unterscheiden Sie technische, organisatorische und politische
+Randbedingungen oder übergreifende Konventionen (beispielsweise
+Programmier- oder Versionierungsrichtlinien, Dokumentations- oder
+Namenskonvention).</p>
+<h1 id="kontextabgrenzung-section-system-scope-and-context">Kontextabgrenzung {#section-system-scope-and-context}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Die Kontextabgrenzung grenzt das System von allen
+Kommunikationsbeziehungen (Nachbarsystemen und Benutzerrollen) ab. Sie
+legt damit die externen Schnittstellen fest.</p>
+<p>Differenzieren Sie fachliche (fachliche Ein- und Ausgaben) und
+technische Kontexte (Kanäle, Protokolle, Hardware), falls nötig.</p>
+<p><strong>Motivation.</strong></p>
+<p>Die fachlichen und technischen Schnittstellen zur Kommunikation gehören
+zu den kritischsten Aspekten eines Systems. Stellen Sie sicher, dass Sie
+diese komplett verstanden haben.</p>
+<p><strong>Form.</strong></p>
+<p>Verschiedene Optionen:</p>
+<ul>
+<li>
+<p>Diverse Kontextdiagramme</p>
+</li>
+<li>
+<p>Listen von Kommunikationsbeziehungen mit deren Schnittstellen</p>
+</li>
+</ul>
+<h2 id="fachlicher-kontext-_fachlicher_kontext">Fachlicher Kontext {#_fachlicher_kontext}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Festlegung <strong>aller</strong> Kommunikationsbeziehungen (Nutzer, IT-Systeme, ...)
+mit Erklärung der fachlichen Ein- und Ausgabedaten oder Schnittstellen.
+Zusätzlich (bei Bedarf) fachliche Datenformate oder Protokolle der
+Kommunikation mit den Nachbarsystemen.</p>
+<p><strong>Motivation.</strong></p>
+<p>Alle Beteiligten müssen verstehen, welche fachlichen Informationen mit
+der Umwelt ausgetauscht werden.</p>
+<p><strong>Form.</strong></p>
+<p>Alle Diagrammarten, die das System als Blackbox darstellen und die
+fachlichen Schnittstellen zu den Nachbarsystemen beschreiben.</p>
+<p>Alternativ oder ergänzend können Sie eine Tabelle verwenden. Der Titel
+gibt den Namen Ihres Systems wieder; die drei Spalten sind:
+Kommunikationsbeziehung, Eingabe, Ausgabe.</p>
+<p><strong>\&lt;Diagramm und/oder Tabelle></strong></p>
+<p><strong>\&lt;optional: Erläuterung der externen fachlichen Schnittstellen></strong></p>
+<h2 id="technischer-kontext-_technischer_kontext">Technischer Kontext {#_technischer_kontext}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Technische Schnittstellen (Kanäle, Übertragungsmedien) zwischen dem
+System und seiner Umwelt. Zusätzlich eine Erklärung (<em>mapping</em>), welche
+fachlichen Ein- und Ausgaben über welche technischen Kanäle fließen.</p>
+<p><strong>Motivation.</strong></p>
+<p>Viele Stakeholder treffen Architekturentscheidungen auf Basis der
+technischen Schnittstellen des Systems zu seinem Kontext.</p>
+<p>Insbesondere bei der Entwicklung von Infrastruktur oder Hardware sind
+diese technischen Schnittstellen durchaus entscheidend.</p>
+<p><strong>Form.</strong></p>
+<p>Beispielsweise UML Deployment-Diagramme mit den Kanälen zu
+Nachbarsystemen, begleitet von einer Tabelle, die Kanäle auf
+Ein-/Ausgaben abbildet.</p>
+<p><strong>\&lt;Diagramm oder Tabelle></strong></p>
+<p><strong>\&lt;optional: Erläuterung der externen technischen Schnittstellen></strong></p>
+<p><strong>\&lt;Mapping fachliche auf technische Schnittstellen></strong></p>
+<h1 id="losungsstrategie-section-solution-strategy">Lösungsstrategie {#section-solution-strategy}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Kurzer Überblick über die grundlegenden Entscheidungen und
+Lösungsansätze, die Entwurf und Implementierung des Systems prägen.
+Hierzu gehören:</p>
+<ul>
+<li>
+<p>Technologieentscheidungen</p>
+</li>
+<li>
+<p>Entscheidungen über die Top-Level-Zerlegung des Systems,
+    beispielsweise die Verwendung gesamthaft prägender Entwurfs- oder
+    Architekturmuster,</p>
+</li>
+<li>
+<p>Entscheidungen zur Erreichung der wichtigsten Qualitätsanforderungen
+    sowie</p>
+</li>
+<li>
+<p>relevante organisatorische Entscheidungen, beispielsweise für
+    bestimmte Entwicklungsprozesse oder Delegation bestimmter Aufgaben
+    an andere Stakeholder.</p>
+</li>
+</ul>
+<p><strong>Motivation.</strong></p>
+<p>Diese wichtigen Entscheidungen bilden wesentliche „Eckpfeiler" der
+Architektur. Von ihnen hängen viele weitere Entscheidungen oder
+Implementierungsregeln ab.</p>
+<p><strong>Form.</strong></p>
+<p>Fassen Sie die zentralen Entwurfsentscheidungen <strong>kurz</strong> zusammen.
+Motivieren Sie, ausgehend von Aufgabenstellung, Qualitätszielen und
+Randbedingungen, was Sie entschieden haben und warum Sie so entschieden
+haben. Vermeiden Sie redundante Beschreibungen und verweisen Sie eher
+auf weitere Ausführungen in Folgeabschnitten.</p>
+<h1 id="bausteinsicht-section-building-block-view">Bausteinsicht {#section-building-block-view}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie
+deren Beziehungen. Beispiele für Bausteine sind unter anderem:</p>
+<ul>
+<li>
+<p>Module</p>
+</li>
+<li>
+<p>Komponenten</p>
+</li>
+<li>
+<p>Subsysteme</p>
+</li>
+<li>
+<p>Klassen</p>
+</li>
+<li>
+<p>Interfaces</p>
+</li>
+<li>
+<p>Pakete</p>
+</li>
+<li>
+<p>Bibliotheken</p>
+</li>
+<li>
+<p>Frameworks</p>
+</li>
+<li>
+<p>Schichten</p>
+</li>
+<li>
+<p>Partitionen</p>
+</li>
+<li>
+<p>Tiers</p>
+</li>
+<li>
+<p>Funktionen</p>
+</li>
+<li>
+<p>Makros</p>
+</li>
+<li>
+<p>Operationen</p>
+</li>
+<li>
+<p>Datenstrukturen</p>
+</li>
+<li>
+<p>...</p>
+</li>
+</ul>
+<p>Diese Sicht sollte in jeder Architekturdokumentation vorhanden sein. In
+der Analogie zum Hausbau bildet die Bausteinsicht den <em>Grundrissplan</em>.</p>
+<p><strong>Motivation.</strong></p>
+<p>Behalten Sie den Überblick über den Quellcode, indem Sie die statische
+Struktur des Systems durch Abstraktion verständlich machen.</p>
+<p>Damit ermöglichen Sie Kommunikation auf abstrakterer Ebene, ohne zu
+viele Implementierungsdetails offenlegen zu müssen.</p>
+<p><strong>Form.</strong></p>
+<p>Die Bausteinsicht ist eine hierarchische Sammlung von Blackboxen und
+Whiteboxen (siehe Abbildung unten) und deren Beschreibungen.</p>
+<p><img alt="Baustein Sichten" src="../images/05_building_blocks-DE.png" /></p>
+<p><strong>Ebene 1</strong> ist die Whitebox-Beschreibung des Gesamtsystems, zusammen
+mit Blackbox-Beschreibungen der darin enthaltenen Bausteine.</p>
+<p><strong>Ebene 2</strong> zoomt in einige Bausteine der Ebene 1 hinein. Sie enthält
+somit die Whitebox-Beschreibungen ausgewählter Bausteine der Ebene 1,
+jeweils zusammen mit Blackbox-Beschreibungen darin enthaltener
+Bausteine.</p>
+<p><strong>Ebene 3</strong> zoomt in einige Bausteine der Ebene 2 hinein, usw.</p>
+<h2 id="whitebox-gesamtsystem-_whitebox_gesamtsystem">Whitebox Gesamtsystem {#_whitebox_gesamtsystem}</h2>
+<p>An dieser Stelle beschreiben Sie die Zerlegung des Gesamtsystems anhand
+des nachfolgenden Whitebox-Templates. Dieses enthält:</p>
+<ul>
+<li>
+<p>Ein Übersichtsdiagramm</p>
+</li>
+<li>
+<p>die Begründung dieser Zerlegung</p>
+</li>
+<li>
+<p>Blackbox-Beschreibungen der hier enthaltenen Bausteine. Dafür haben
+    Sie verschiedene Optionen:</p>
+<ul>
+<li>
+<p>in <em>einer</em> Tabelle, gibt einen kurzen und pragmatischen
+    Überblick über die enthaltenen Bausteine sowie deren
+    Schnittstellen.</p>
+</li>
+<li>
+<p>als Liste von Blackbox-Beschreibungen der Bausteine, gemäß dem
+    Blackbox-Template (siehe unten). Diese Liste können Sie, je nach
+    Werkzeug, etwa in Form von Unterkapiteln (Text), Unter-Seiten
+    (Wiki) oder geschachtelten Elementen (Modellierungswerkzeug)
+    darstellen.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(optional:) wichtige Schnittstellen, die nicht bereits im
+    Blackbox-Template eines der Bausteine erläutert werden, aber für das
+    Verständnis der Whitebox von zentraler Bedeutung sind. Aufgrund der
+    vielfältigen Möglichkeiten oder Ausprägungen von Schnittstellen
+    geben wir hierzu kein weiteres Template vor. Im schlimmsten Fall
+    müssen Sie Syntax, Semantik, Protokolle, Fehlerverhalten,
+    Restriktionen, Versionen, Qualitätseigenschaften, notwendige
+    Kompatibilitäten und vieles mehr spezifizieren oder beschreiben. Im
+    besten Fall kommen Sie mit Beispielen oder einfachen Signaturen
+    zurecht.</p>
+</li>
+</ul>
+<p><strong><em>\&lt;Übersichtsdiagramm></em></strong></p>
+<p>Begründung</p>
+<p>:   <em>\&lt;Erläuternder Text></em></p>
+<p>Enthaltene Bausteine</p>
+<p>:   <em>\&lt;Beschreibung der enthaltenen Bausteine (Blackboxen)></em></p>
+<p>Wichtige Schnittstellen</p>
+<p>:   <em>\&lt;Beschreibung wichtiger Schnittstellen></em></p>
+<p>Hier folgen jetzt Erläuterungen zu Blackboxen der Ebene 1.</p>
+<p>Falls Sie die tabellarische Beschreibung wählen, so werden Blackboxen
+darin nur mit Name und Verantwortung nach folgendem Muster beschrieben:</p>
+<p>+-----------------------+-----------------------------------------------+
+| <strong>Name</strong>              | <strong>Verantwortung</strong>                             |
++=======================+===============================================+
+| <em>\&lt;Blackbox 1></em>      |  <em>\&lt;Text></em>                                   |
++-----------------------+-----------------------------------------------+
+| <em>\&lt;Blackbox 2></em>      |  <em>\&lt;Text></em>                                   |
++-----------------------+-----------------------------------------------+</p>
+<p>Falls Sie die ausführliche Liste von Blackbox-Beschreibungen wählen,
+beschreiben Sie jede wichtige Blackbox in einem eigenen
+Blackbox-Template. Dessen Überschrift ist jeweils der Namen dieser
+Blackbox.</p>
+<h3 id="name-blackbox-1-__name_blackbox_1">\&lt;Name Blackbox 1> {#__name_blackbox_1}</h3>
+<p>Beschreiben Sie die \&lt;Blackbox 1> anhand des folgenden
+Blackbox-Templates:</p>
+<ul>
+<li>
+<p>Zweck/Verantwortung</p>
+</li>
+<li>
+<p>Schnittstelle(n), sofern diese nicht als eigenständige
+    Beschreibungen herausgezogen sind. Hierzu gehören eventuell auch
+    Qualitäts- und Leistungsmerkmale dieser Schnittstelle.</p>
+</li>
+<li>
+<p>(Optional) Qualitäts-/Leistungsmerkmale der Blackbox, beispielsweise
+    Verfügbarkeit, Laufzeitverhalten o. Ä.</p>
+</li>
+<li>
+<p>(Optional) Ablageort/Datei(en)</p>
+</li>
+<li>
+<p>(Optional) Erfüllte Anforderungen, falls Sie Traceability zu
+    Anforderungen benötigen.</p>
+</li>
+<li>
+<p>(Optional) Offene Punkte/Probleme/Risiken</p>
+</li>
+</ul>
+<p><em>\&lt;Zweck/Verantwortung></em></p>
+<p><em>\&lt;Schnittstelle(n)></em></p>
+<p><em>\&lt;(Optional) Qualitäts-/Leistungsmerkmale></em></p>
+<p><em>\&lt;(Optional) Ablageort/Datei(en)></em></p>
+<p><em>\&lt;(Optional) Erfüllte Anforderungen></em></p>
+<p><em>\&lt;(optional) Offene Punkte/Probleme/Risiken></em></p>
+<h3 id="name-blackbox-2-__name_blackbox_2">\&lt;Name Blackbox 2> {#__name_blackbox_2}</h3>
+<p><em>\&lt;Blackbox-Template></em></p>
+<h3 id="name-blackbox-n-__name_blackbox_n">\&lt;Name Blackbox n> {#__name_blackbox_n}</h3>
+<p><em>\&lt;Blackbox-Template></em></p>
+<h3 id="name-schnittstelle-1-__name_schnittstelle_1">\&lt;Name Schnittstelle 1> {#__name_schnittstelle_1}</h3>
+<p>...</p>
+<h3 id="name-schnittstelle-m-__name_schnittstelle_m">\&lt;Name Schnittstelle m> {#__name_schnittstelle_m}</h3>
+<h2 id="ebene-2-_ebene_2">Ebene 2 {#_ebene_2}</h2>
+<p>Beschreiben Sie den inneren Aufbau (einiger) Bausteine aus Ebene 1 als
+Whitebox.</p>
+<p>Welche Bausteine Ihres Systems Sie hier beschreiben, müssen Sie selbst
+entscheiden. Bitte stellen Sie dabei Relevanz vor Vollständigkeit.
+Skizzieren Sie wichtige, überraschende, riskante, komplexe oder
+besonders volatile Bausteine. Normale, einfache oder standardisierte
+Teile sollten Sie weglassen.</p>
+<h3 id="whitebox-baustein-1-_whitebox_emphasis_baustein_1_emphasis">Whitebox <em>\&lt;Baustein 1></em> {#_whitebox_emphasis_baustein_1_emphasis}</h3>
+<p>...zeigt das Innenleben von <em>Baustein 1</em>.</p>
+<p><em>\&lt;Whitebox-Template></em></p>
+<h3 id="whitebox-baustein-2-_whitebox_emphasis_baustein_2_emphasis">Whitebox <em>\&lt;Baustein 2></em> {#_whitebox_emphasis_baustein_2_emphasis}</h3>
+<p><em>\&lt;Whitebox-Template></em></p>
+<p>...</p>
+<h3 id="whitebox-baustein-m-_whitebox_emphasis_baustein_m_emphasis">Whitebox <em>\&lt;Baustein m></em> {#_whitebox_emphasis_baustein_m_emphasis}</h3>
+<p><em>\&lt;Whitebox-Template></em></p>
+<h2 id="ebene-3-_ebene_3">Ebene 3 {#_ebene_3}</h2>
+<p>Beschreiben Sie den inneren Aufbau (einiger) Bausteine aus Ebene 2 als
+Whitebox.</p>
+<p>Bei tieferen Gliederungen der Architektur kopieren Sie diesen Teil von
+arc42 für die weiteren Ebenen.</p>
+<h3 id="whitebox-_baustein-x1_-_whitebox_baustein_x_1">Whitebox \&lt;_Baustein x.1_> {#_whitebox_baustein_x_1}</h3>
+<p>...zeigt das Innenleben von <em>Baustein x.1</em>.</p>
+<p><em>\&lt;Whitebox-Template></em></p>
+<h3 id="whitebox-_baustein-x2_-_whitebox_baustein_x_2">Whitebox \&lt;_Baustein x.2_> {#_whitebox_baustein_x_2}</h3>
+<p><em>\&lt;Whitebox-Template></em></p>
+<h3 id="whitebox-_baustein-y1_-_whitebox_baustein_y_1">Whitebox \&lt;_Baustein y.1_> {#_whitebox_baustein_y_1}</h3>
+<p><em>\&lt;Whitebox-Template></em></p>
+<h1 id="laufzeitsicht-section-runtime-view">Laufzeitsicht {#section-runtime-view}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen
+in Form von Szenarien aus den folgenden Bereichen:</p>
+<ul>
+<li>
+<p>Wichtige Abläufe oder <em>Features</em>: Wie führen die Bausteine der
+    Architektur die wichtigsten Abläufe durch?</p>
+</li>
+<li>
+<p>Interaktionen an kritischen externen Schnittstellen: Wie arbeiten
+    Bausteine mit Nutzern und Nachbarsystemen zusammen?</p>
+</li>
+<li>
+<p>Betrieb und Administration: Inbetriebnahme, Start, Stop.</p>
+</li>
+<li>
+<p>Fehler- und Ausnahmeszenarien</p>
+</li>
+</ul>
+<p>Anmerkung: Das Kriterium für die Auswahl der möglichen Szenarien (d.h.
+Abläufe) des Systems ist deren Architekturrelevanz. Es geht nicht darum,
+möglichst viele Abläufe darzustellen, sondern eine angemessene Auswahl
+zu dokumentieren.</p>
+<p><strong>Motivation.</strong></p>
+<p>Sie sollten verstehen, wie (Instanzen von) Bausteine(n) Ihres Systems
+ihre jeweiligen Aufgaben erfüllen und zur Laufzeit miteinander
+kommunizieren.</p>
+<p>Nutzen Sie diese Szenarien in der Dokumentation hauptsächlich für eine
+verständlichere Kommunikation mit denjenigen Stakeholdern, die die
+statischen Modelle (z.B. Bausteinsicht, Verteilungssicht) weniger
+verständlich finden.</p>
+<p><strong>Form.</strong></p>
+<p>Für die Beschreibung von Szenarien gibt es zahlreiche
+Ausdrucksmöglichkeiten. Nutzen Sie beispielsweise:</p>
+<ul>
+<li>
+<p>Nummerierte Schrittfolgen oder Aufzählungen in Umgangssprache</p>
+</li>
+<li>
+<p>Aktivitäts- oder Flussdiagramme</p>
+</li>
+<li>
+<p>Sequenzdiagramme</p>
+</li>
+<li>
+<p>BPMN (Geschäftsprozessmodell und -notation) oder EPKs
+    (Ereignis-Prozessketten)</p>
+</li>
+<li>
+<p>Zustandsautomaten</p>
+</li>
+<li>
+<p>...</p>
+</li>
+</ul>
+<h2 id="bezeichnung-laufzeitszenario-1-__emphasis_bezeichnung_laufzeitszenario_1_emphasis"><em>\&lt;Bezeichnung Laufzeitszenario 1></em> {#__emphasis_bezeichnung_laufzeitszenario_1_emphasis}</h2>
+<ul>
+<li>
+<p>\&lt;hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen></p>
+</li>
+<li>
+<p>\&lt;hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem
+    Szenario erläutern></p>
+</li>
+</ul>
+<h2 id="bezeichnung-laufzeitszenario-2-__emphasis_bezeichnung_laufzeitszenario_2_emphasis"><em>\&lt;Bezeichnung Laufzeitszenario 2></em> {#__emphasis_bezeichnung_laufzeitszenario_2_emphasis}</h2>
+<p>...</p>
+<h2 id="bezeichnung-laufzeitszenario-n-__emphasis_bezeichnung_laufzeitszenario_n_emphasis"><em>\&lt;Bezeichnung Laufzeitszenario n></em> {#__emphasis_bezeichnung_laufzeitszenario_n_emphasis}</h2>
+<p>...</p>
+<h1 id="verteilungssicht-section-deployment-view">Verteilungssicht {#section-deployment-view}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Die Verteilungssicht beschreibt:</p>
+<ol>
+<li>
+<p>die technische Infrastruktur, auf der Ihr System ausgeführt wird,
+    mit Infrastrukturelementen wie Standorten, Umgebungen, Rechnern,
+    Prozessoren, Kanälen und Netztopologien sowie sonstigen
+    Bestandteilen, und</p>
+</li>
+<li>
+<p>die Abbildung von (Software-)Bausteinen auf diese Infrastruktur.</p>
+</li>
+</ol>
+<p>Häufig laufen Systeme in unterschiedlichen Umgebungen, beispielsweise
+Entwicklung-/Test- oder Produktionsumgebungen. In solchen Fällen sollten
+Sie alle relevanten Umgebungen aufzeigen.</p>
+<p>Nutzen Sie die Verteilungssicht insbesondere dann, wenn Ihre Software
+auf mehr als einem Rechner, Prozessor, Server oder Container abläuft
+oder Sie Ihre Hardware sogar selbst konstruieren.</p>
+<p>Aus Softwaresicht genügt es, auf die Aspekte zu achten, die für die
+Softwareverteilung relevant sind. Insbesondere bei der
+Hardwareentwicklung kann es notwendig sein, die Infrastruktur mit
+beliebigen Details zu beschreiben.</p>
+<p><strong>Motivation.</strong></p>
+<p>Software läuft nicht ohne Infrastruktur. Diese zugrundeliegende
+Infrastruktur beeinflusst Ihr System und/oder querschnittliche
+Lösungskonzepte, daher müssen Sie diese Infrastruktur kennen.</p>
+<p><strong>Form.</strong></p>
+<p>Das oberste Verteilungsdiagramm könnte bereits in Ihrem technischen
+Kontext enthalten sein, mit Ihrer Infrastruktur als EINE Blackbox. Jetzt
+zoomen Sie in diese Infrastruktur mit weiteren Verteilungsdiagrammen
+hinein:</p>
+<ul>
+<li>
+<p>Die UML stellt mit Verteilungsdiagrammen (Deployment diagrams) eine
+    Diagrammart zur Verfügung, um diese Sicht auszudrücken. Nutzen Sie
+    diese, evtl. auch geschachtelt, wenn Ihre Verteilungsstruktur es
+    verlangt.</p>
+</li>
+<li>
+<p>Falls Ihre Infrastruktur-Stakeholder andere Diagrammarten
+    bevorzugen, die beispielsweise Prozessoren und Kanäle zeigen, sind
+    diese hier ebenfalls einsetzbar.</p>
+</li>
+</ul>
+<h2 id="infrastruktur-ebene-1-_infrastruktur_ebene_1">Infrastruktur Ebene 1 {#_infrastruktur_ebene_1}</h2>
+<p>An dieser Stelle beschreiben Sie (als Kombination von Diagrammen mit
+Tabellen oder Texten):</p>
+<ul>
+<li>
+<p>die Verteilung des Gesamtsystems auf mehrere Standorte, Umgebungen,
+    Rechner, Prozessoren o. Ä., sowie die physischen Verbindungskanäle
+    zwischen diesen,</p>
+</li>
+<li>
+<p>wichtige Begründungen für diese Verteilungsstruktur,</p>
+</li>
+<li>
+<p>Qualitäts- und/oder Leistungsmerkmale dieser Infrastruktur,</p>
+</li>
+<li>
+<p>Zuordnung von Softwareartefakten zu Bestandteilen der Infrastruktur</p>
+</li>
+</ul>
+<p>Für mehrere Umgebungen oder alternative Deployments kopieren Sie diesen
+Teil von arc42 für alle wichtigen Umgebungen/Varianten.</p>
+<p><strong><em>\&lt;Übersichtsdiagramm></em></strong></p>
+<p>Begründung</p>
+<p>:   <em>\&lt;Erläuternder Text></em></p>
+<p>Qualitäts- und/oder Leistungsmerkmale</p>
+<p>:   <em>\&lt;Erläuternder Text></em></p>
+<p>Zuordnung von Bausteinen zu Infrastruktur</p>
+<p>:   <em>\&lt;Beschreibung der Zuordnung></em></p>
+<h2 id="infrastruktur-ebene-2-_infrastruktur_ebene_2">Infrastruktur Ebene 2 {#_infrastruktur_ebene_2}</h2>
+<p>An dieser Stelle können Sie den inneren Aufbau (einiger)
+Infrastrukturelemente aus Ebene 1 beschreiben.</p>
+<p>Für jedes Infrastrukturelement kopieren Sie die Struktur aus Ebene 1.</p>
+<h3 id="infrastrukturelement-1-__emphasis_infrastrukturelement_1_emphasis"><em>\&lt;Infrastrukturelement 1></em> {#__emphasis_infrastrukturelement_1_emphasis}</h3>
+<p><em>\&lt;Diagramm + Erläuterungen></em></p>
+<h3 id="infrastrukturelement-2-__emphasis_infrastrukturelement_2_emphasis"><em>\&lt;Infrastrukturelement 2></em> {#__emphasis_infrastrukturelement_2_emphasis}</h3>
+<p><em>\&lt;Diagramm + Erläuterungen></em></p>
+<p>...</p>
+<h3 id="infrastrukturelement-n-__emphasis_infrastrukturelement_n_emphasis"><em>\&lt;Infrastrukturelement n></em> {#__emphasis_infrastrukturelement_n_emphasis}</h3>
+<p><em>\&lt;Diagramm + Erläuterungen></em></p>
+<h1 id="querschnittliche-konzepte-section-concepts">Querschnittliche Konzepte {#section-concepts}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Dieser Abschnitt beschreibt übergreifende, prinzipielle Regelungen und
+Lösungsansätze, die an mehreren Stellen (=<em>querschittlich</em>) relevant
+sind.</p>
+<p>Solche Konzepte betreffen oft mehrere Bausteine. Dazu können vielerlei
+Themen gehören, beispielsweise:</p>
+<ul>
+<li>
+<p>fachliche Modelle,</p>
+</li>
+<li>
+<p>eingesetzte Architektur- oder Entwurfsmuster,</p>
+</li>
+<li>
+<p>Regeln für den konkreten Einsatz von Technologien,</p>
+</li>
+<li>
+<p>prinzipielle --- meist technische --- Festlegungen übergreifender
+    Art,</p>
+</li>
+<li>
+<p>Implementierungsregeln</p>
+</li>
+</ul>
+<p><strong>Motivation.</strong></p>
+<p>Konzepte bilden die Grundlage für <em>konzeptionelle Integrität</em>
+(Konsistenz, Homogenität) der Architektur und damit eine wesentliche
+Grundlage für die innere Qualität Ihrer Systeme.</p>
+<p>Manche dieser Themen lassen sich nur schwer als Baustein in der
+Architektur unterbringen (z.B. das Thema „Sicherheit"). Hier ist der
+Platz im Template, wo Sie derartige Themen geschlossen behandeln können.</p>
+<p><strong>Form.</strong></p>
+<p>Kann vielfältig sein:</p>
+<ul>
+<li>
+<p>Konzeptpapiere mit beliebiger Gliederung,</p>
+</li>
+<li>
+<p>übergreifende Modelle/Szenarien mit Notationen, die Sie auch in den
+    Architektursichten nutzen,</p>
+</li>
+<li>
+<p>beispielhafte Implementierung speziell für technische Konzepte,</p>
+</li>
+<li>
+<p>Verweise auf „übliche" Nutzung von Standard-Frameworks
+    (beispielsweise die Nutzung von Hibernate als Object/Relational
+    Mapper).</p>
+</li>
+</ul>
+<p><strong>Struktur.</strong></p>
+<p>Eine mögliche (nicht aber notwendige!) Untergliederung dieses
+Abschnittes könnte wie folgt aussehen (wobei die Zuordnung von Themen zu
+den Gruppen nicht immer eindeutig ist):</p>
+<ul>
+<li>
+<p>Fachliche Konzepte</p>
+</li>
+<li>
+<p>User Experience (UX)</p>
+</li>
+<li>
+<p>Sicherheitskonzepte (Safety und Security)</p>
+</li>
+<li>
+<p>Architektur- und Entwurfsmuster</p>
+</li>
+<li>
+<p>Unter-der-Haube</p>
+</li>
+<li>
+<p>Entwicklungskonzepte</p>
+</li>
+<li>
+<p>Betriebskonzepte</p>
+</li>
+</ul>
+<p><img alt="Possible topics for crosscutting
+concepts" src="../images/08-Crosscutting-Concepts-Structure-DE.png" /></p>
+<h2 id="konzept-1-__emphasis_konzept_1_emphasis"><em>\&lt;Konzept 1></em> {#__emphasis_konzept_1_emphasis}</h2>
+<p><em>\&lt;Erklärung></em></p>
+<h2 id="konzept-2-__emphasis_konzept_2_emphasis"><em>\&lt;Konzept 2></em> {#__emphasis_konzept_2_emphasis}</h2>
+<p><em>\&lt;Erklärung></em></p>
+<p>...</p>
+<h2 id="konzept-n-__emphasis_konzept_n_emphasis"><em>\&lt;Konzept n></em> {#__emphasis_konzept_n_emphasis}</h2>
+<p><em>\&lt;Erklärung></em></p>
+<h1 id="entwurfsentscheidungen-section-design-decisions">Entwurfsentscheidungen {#section-design-decisions}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Wichtige, teure, große oder riskante Architektur- oder
+Entwurfsentscheidungen inklusive der jeweiligen Begründungen. Mit
+\"Entscheidungen\" meinen wir hier die Auswahl einer von mehreren
+Alternativen unter vorgegebenen Kriterien.</p>
+<p>Wägen Sie ab, inwiefern Sie Entscheidungen hier zentral beschreiben,
+oder wo eine lokale Beschreibung (z.B. in der Whitebox-Sicht von
+Bausteinen) sinnvoller ist. Vermeiden Sie Redundanz. Verweisen Sie evtl.
+auf Abschnitt 4, wo schon grundlegende strategische Entscheidungen
+beschrieben wurden.</p>
+<p><strong>Motivation.</strong></p>
+<p>Stakeholder des Systems sollten wichtige Entscheidungen verstehen und
+nachvollziehen können.</p>
+<p><strong>Form.</strong></p>
+<p>Verschiedene Möglichkeiten:</p>
+<ul>
+<li>
+<p>Liste oder Tabelle, nach Wichtigkeit und Tragweite der
+    Entscheidungen geordnet</p>
+</li>
+<li>
+<p>ausführlicher in Form einzelner Unterkapitel je Entscheidung</p>
+</li>
+<li>
+<p>ADR (<a href="http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions">Architecture Decision
+    Record</a>)
+    für jede wichtige Entscheidung</p>
+</li>
+</ul>
+<h1 id="qualitatsanforderungen-section-quality-scenarios">Qualitätsanforderungen {#section-quality-scenarios}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Dieser Abschnitt enthält möglichst alle Qualitätsanforderungen als
+Qualitätsbaum mit Szenarien. Die wichtigsten davon haben Sie bereits in
+Abschnitt 1.2 (Qualitätsziele) hervorgehoben.</p>
+<p>Nehmen Sie hier auch Qualitätsanforderungen geringerer Priorität auf,
+deren Nichteinhaltung oder -erreichung geringe Risiken birgt.</p>
+<p><strong>Motivation.</strong></p>
+<p>Weil Qualitätsanforderungen die Architekturentscheidungen oft maßgeblich
+beeinflussen, sollten Sie die für Ihre Stakeholder relevanten
+Qualitätsanforderungen kennen, möglichst konkret und operationalisiert.</p>
+<h2 id="qualitatsbaum-_qualit_tsbaum">Qualitätsbaum {#_qualit_tsbaum}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Der Qualitätsbaum (à la ATAM) mit Qualitätsszenarien an den Blättern.</p>
+<p><strong>Motivation.</strong></p>
+<p>Die mit Prioritäten versehene Baumstruktur gibt Überblick über
+die --- oftmals zahlreichen --- Qualitätsanforderungen.</p>
+<ul>
+<li>
+<p>Baumartige Verfeinerung des Begriffes „Qualität", mit „Qualität"
+    oder „Nützlichkeit" als Wurzel.</p>
+</li>
+<li>
+<p>Mindmap mit Qualitätsoberbegriffen als Hauptzweige</p>
+</li>
+</ul>
+<p>In jedem Fall sollten Sie hier Verweise auf die Qualitätsszenarien des
+folgenden Abschnittes aufnehmen.</p>
+<h2 id="qualitatsszenarien-_qualit_tsszenarien">Qualitätsszenarien {#_qualit_tsszenarien}</h2>
+<p><strong>Inhalt.</strong></p>
+<p>Konkretisierung der (in der Praxis oftmals vagen oder impliziten)
+Qualitätsanforderungen durch (Qualitäts-)Szenarien.</p>
+<p>Diese Szenarien beschreiben, was beim Eintreffen eines Stimulus auf ein
+System in bestimmten Situationen geschieht.</p>
+<p>Wesentlich sind zwei Arten von Szenarien:</p>
+<ul>
+<li>
+<p>Nutzungsszenarien (auch bekannt als Anwendungs- oder
+    Anwendungsfallszenarien) beschreiben, wie das System zur Laufzeit
+    auf einen bestimmten Auslöser reagieren soll. Hierunter fallen auch
+    Szenarien zur Beschreibung von Effizienz oder Performance. Beispiel:
+    Das System beantwortet eine Benutzeranfrage innerhalb einer Sekunde.</p>
+</li>
+<li>
+<p>Änderungsszenarien beschreiben eine Modifikation des Systems oder
+    seiner unmittelbaren Umgebung. Beispiel: Eine zusätzliche
+    Funktionalität wird implementiert oder die Anforderung an ein
+    Qualitätsmerkmal ändert sich.</p>
+</li>
+</ul>
+<p><strong>Motivation.</strong></p>
+<p>Szenarien operationalisieren Qualitätsanforderungen und machen deren
+Erfüllung mess- oder entscheidbar.</p>
+<p>Insbesondere wenn Sie die Qualität Ihrer Architektur mit Methoden wie
+ATAM überprüfen wollen, bedürfen die in Abschnitt 1.2 genannten
+Qualitätsziele einer weiteren Präzisierung bis auf die Ebene von
+diskutierbaren und nachprüfbaren Szenarien.</p>
+<p><strong>Form.</strong></p>
+<p>Entweder tabellarisch oder als Freitext.</p>
+<h1 id="risiken-und-technische-schulden-section-technical-risks">Risiken und technische Schulden {#section-technical-risks}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken
+und/oder technischen Schulden.</p>
+<blockquote>
+<p>Risikomanagement ist Projektmanagement für Erwachsene.</p>
+<p>---  Tim Lister Atlantic Systems Guild</p>
+</blockquote>
+<p>Unter diesem Motto sollten Sie Architekturrisiken und/oder technische
+Schulden gezielt ermitteln, bewerten und Ihren Management-Stakeholdern
+(z.B. Projektleitung, Product-Owner) transparent machen.</p>
+<p><strong>Form.</strong></p>
+<p>Liste oder Tabelle von Risiken und/oder technischen Schulden, eventuell
+mit vorgeschlagenen Maßnahmen zur Risikovermeidung, Risikominimierung
+oder dem Abbau der technischen Schulden.</p>
+<h1 id="glossar-section-glossary">Glossar {#section-glossary}</h1>
+<p><strong>Inhalt.</strong></p>
+<p>Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im
+Zusammenhang mit dem System verwenden.</p>
+<p>Nutzen Sie das Glossar ebenfalls als Übersetzungsreferenz, falls Sie in
+mehrsprachigen Teams arbeiten.</p>
+<p><strong>Motivation.</strong></p>
+<p>Sie sollten relevante Begriffe klar definieren, so dass alle Beteiligten</p>
+<ol>
+<li>
+<p>diese Begriffe identisch verstehen, und</p>
+</li>
+<li>
+<p>vermeiden, mehrere Begriffe für die gleiche Sache zu haben.</p>
+</li>
+<li>
+<p>Zweispaltige Tabelle mit \&lt;Begriff> und \&lt;Definition></p>
+</li>
+<li>
+<p>Eventuell weitere Spalten mit Übersetzungen, falls notwendig.</p>
+</li>
+</ol>
+<p>+-----------------------+-----------------------------------------------+
+| Begriff               | Definition                                    |
++=======================+===============================================+
+| <em>\&lt;Begriff-1></em>       | <em>\&lt;Definition-1></em>                            |
++-----------------------+-----------------------------------------------+
+| <em>\&lt;Begriff-2</em>         | <em>\&lt;Definition-2></em>                            |
++-----------------------+-----------------------------------------------+</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
